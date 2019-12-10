@@ -25,7 +25,8 @@ module.exports = {
     },
     output: {
         library: "LIB",
-        libraryTarget: "umd"
+        libraryTarget: "umd",
+        filename: '[name].js'
     },
     //...
     plugins: [
