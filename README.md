@@ -77,7 +77,7 @@ example.extend.min.js ({ RichEditor, ReactCropper })
 `RichEditor` and `ReactCropper` will be packaged to `example.extend.js `.
 
 
-Function `Avatar`, `Button`, `RichEditor` and `ReactCropper` are added to global library `LIB`.
+Function `Avatar`, `Button`, `RichEditor` and `ReactCropper` are added to global library `LIB`.  
 And `LIB.Avatar`, `LIB.Button`, `LIB.RichEditor` and `LIB.ReactCropper` work well.
 
 
@@ -85,18 +85,18 @@ And `LIB.Avatar`, `LIB.Button`, `LIB.RichEditor` and `LIB.ReactCropper` work wel
 
 ### mode
 
-Its value can be `add` or `replace` or ''. The default value is `add`.
+Its value can be `add` or `replace` or ''. The default value is `add`.  
 `add` means will add chunk file to entry.  
 `replace` means will remove original entry file, and add chunk file to entry.  
 '' means will not add chunk file to entry.  
 
 ### min
-Its value must be boolean. The default is true.
-When it's true, it will add min to entry as above. Otherwise the `xx.min.js` will not add to entry.
+Its value must be boolean. The default is true.  
+When it's true, it will add min to entry as above. Otherwise the `xx.min.js` will not be added to entry.
 
 ### chunkConfig
 Its value must be Array.
-You need to config it to split entry file into multiple files.
+You need to config it to split entry file into multiple files as example.
 
 
 ## Example of usage on the Browser
