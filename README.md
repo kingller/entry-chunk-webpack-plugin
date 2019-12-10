@@ -87,9 +87,9 @@ And `LIB.Avatar`, `LIB.Button`, `LIB.RichEditor` and `LIB.ReactCropper` work wel
 ### mode
 
 Its value can be `add` or `replace` or ''. The default value is `add`.  
-`add` means will add chunk file to entry.  
-`replace` means will remove original entry file, and add chunk file to entry.  
-'' means will not add chunk file to entry.  
+`add`: means will add chunk file to entry.  
+`replace`: means will remove original entry file, and add chunk file to entry.  
+'': means will not add chunk file to entry.  
 
 ### min
 Its value must be boolean. The default value is `true`.  
