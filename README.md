@@ -1,5 +1,5 @@
 # entry-chunk-webpack-plugin
-A webpack plugin that splits entry file into multiple files and add them to entry of webpack.
+A webpack plugin that splits one entry file into multiple files and add them to entry of webpack.
 
 
 ## Install
