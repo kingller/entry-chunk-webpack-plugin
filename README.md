@@ -91,7 +91,7 @@ Its value can be `add` or `replace` or ''. The default value is `add`.
 '' means will not add chunk file to entry.  
 
 ### min
-Its value must be boolean. The default is true.  
+Its value must be boolean. The default is `true`.  
 When it's true, it will add min to entry as above. Otherwise the `xx.min.js` will not be added to entry.
 
 ### chunkConfig
