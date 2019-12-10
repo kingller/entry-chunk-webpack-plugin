@@ -99,6 +99,9 @@ When it's true, it will add min to entry as above. Otherwise the `xx.min.js` wil
 Its value must be Array.
 You need to config it to split entry file into multiple files as example.
 
+### exclude
+You can skip entry file by `exclude`: ({name, path}) => boolean
+
 
 ## Example of usage on the Browser
 

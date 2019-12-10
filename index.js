@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const PLUGIN_NAME = "EntryChunkWebpackPlugin";
+const PLUGIN_NAME = 'EntryChunkWebpackPlugin';
 const warn = msg => console.warn(`[${PLUGIN_NAME}] ${msg}`);
 
 /**
@@ -13,12 +13,14 @@ class EntryChunkWebpackPlugin {
    * @param {String: 'add' | 'replace' | ''} [options.mode]
    * @param {Boolean} [options.min]
    * @param {Array({ name: string, modules: string[] })} [options.chunkConfig]
+   * @param {Function: ({name, path}) => boolean} [options.exclude]
    */
   constructor(options) {
     this._options = Object.assign({
       mode: 'add', // 'add' || 'replace' || '',
       min: true,
       chunkConfig: [], // { name: string, modules: [] }
+      exclude: function (file) { return false; },
     }, options);
   }
 
@@ -28,7 +30,7 @@ class EntryChunkWebpackPlugin {
    */
   apply(compiler) {
     compiler.hooks.entryOption.tap(PLUGIN_NAME, (context, entry) => {
-      const { mode, chunkConfig } = this._options;
+      const { mode, chunkConfig, exclude } = this._options;
       if (!chunkConfig || !chunkConfig.length) {
         warn(`options.chunkConfig should not be empty.`)
         return;
@@ -48,6 +50,18 @@ class EntryChunkWebpackPlugin {
       let isResolvedMap = {};
       for (let key in cloneEntry) {
         const currentPath = cloneEntry[key];
+
+        if (
+          typeof currentPath !== 'string' ||
+          (exclude &&
+            exclude({
+              name: key,
+              path: currentPath
+            }))
+        ) {
+          continue;
+        }
+
         let absolutePath = currentPath;
         if (!path.isAbsolute(absolutePath)) {
           absolutePath = path.resolve(context, absolutePath);
