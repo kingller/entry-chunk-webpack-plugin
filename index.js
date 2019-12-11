@@ -32,12 +32,17 @@ class EntryChunkWebpackPlugin {
     compiler.hooks.entryOption.tap(PLUGIN_NAME, (context, entry) => {
       const { mode, chunkConfig, exclude } = this._options;
       if (!chunkConfig || !chunkConfig.length) {
-        warn(`options.chunkConfig should not be empty.`)
+        warn(`options.chunkConfig should not be empty.`);
         return;
       }
 
       if (mode !== 'add' && mode !== 'replace' && mode !== '') {
-        warn(`options.mode should be 'add' or 'replace' or ''. Its default value is 'add'.`)
+        warn(`options.mode should be 'add' or 'replace' or ''. Its default value is 'add'.`);
+        return;
+      }
+
+      if (typeof entry !== 'object') {
+        warn('Webpack configuration.entry should be object { <key>: non-empty string }');
         return;
       }
 
@@ -48,17 +53,20 @@ class EntryChunkWebpackPlugin {
         }
       }
       let isResolvedMap = {};
+      let hasNoStringPath = false;
       for (let key in cloneEntry) {
         const currentPath = cloneEntry[key];
 
-        if (
-          typeof currentPath !== 'string' ||
-          (exclude &&
-            exclude({
-              name: key,
-              path: currentPath
-            }))
-        ) {
+        if (typeof currentPath !== 'string') {
+          hasNoStringPath = true;
+          continue;
+        }
+
+        if (exclude &&
+          exclude({
+            name: key,
+            path: currentPath
+          })) {
           continue;
         }
 
@@ -105,6 +113,10 @@ class EntryChunkWebpackPlugin {
             }
           );
         });
+      }
+
+      if (hasNoStringPath && Object.keys(isResolvedMap).length === 0) {
+        warn('Webpack configuration.entry should be object { <key>: non-empty string }');
       }
     });
   }
