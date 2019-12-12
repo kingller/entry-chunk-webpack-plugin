@@ -21,7 +21,6 @@ module.exports = {
     mode: "production",
     entry: {
         example: './src/index.ts',
-        'example.min': './src/index.ts',
     },
     output: {
         library: "LIB",
@@ -31,7 +30,6 @@ module.exports = {
     //...
     plugins: [
         new EntryChunkWebpackPlugin({
-            min: 'both',
             chunkConfig: [{
                 name: 'example.base',
             }, {
@@ -65,14 +63,11 @@ export { default as ReactCropper } from './components/react-cropper/index';
 
 ### Output Bundle
 
-It will output 6 files
+It will output 3 files
 ```javascript
 example.js ({ Avatar, Button, RichEditor, ReactCropper })
-example.min.js ({ Avatar, Button, RichEditor, ReactCropper })
 example.base.js ({ Avatar, Button })
-example.base.min.js ({ Avatar, Button })
 example.extend.js ({ RichEditor, ReactCropper })
-example.extend.min.js ({ RichEditor, ReactCropper })
 ```
 
 `Avatar` and `Button`  will be packaged to `example.base.js`.    
@@ -95,11 +90,11 @@ Its value can be `'add'` or `'replace'` or `''`. The default value is `add`.
 
 ### min
 
-Its value must be boolean or `'both'`. The default value is `true`.  
+Its value must be boolean or `'both'`. The default value is `false`.  
 
-`true`: it will add `xx.min.js` to entry.  
-`false`: it will add `xx.js` to entry.  
-`'both'`: it will both add `xx.js` and `xx.min.js` to entry as above.  
+`true`: it will add `[name].min.js` to entry.  
+`false`: it will add `[name].js` to entry.  
+`'both'`: it will both add `[name].js` and `[name].min.js` to entry.  
 
 ### chunkConfig
 
@@ -116,6 +111,6 @@ You can skip entry file by `exclude`: ({name, path}) => boolean
 In the browser:
 
 ```html
-<script src="https://cdn.xx.com/example.base.min.js"></script>
-<script src="https://cdn.xx.com/example.extend.min.js"></script>
+<script src="https://cdn.xx.com/example.base.js"></script>
+<script src="https://cdn.xx.com/example.extend.js"></script>
 ```

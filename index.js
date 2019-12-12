@@ -18,7 +18,7 @@ class EntryChunkWebpackPlugin {
   constructor(options) {
     this._options = Object.assign({
       mode: 'add', // 'add' || 'replace' || '',
-      min: true,
+      min: false,
       chunkConfig: [], // { name: string, modules: [] }
       exclude: function (file) { return false; },
     }, options);
