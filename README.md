@@ -31,6 +31,7 @@ module.exports = {
     //...
     plugins: [
         new EntryChunkWebpackPlugin({
+            min: 'both',
             chunkConfig: [{
                 name: 'example.base',
             }, {
@@ -86,20 +87,27 @@ And `LIB.Avatar`, `LIB.Button`, `LIB.RichEditor` and `LIB.ReactCropper` work wel
 
 ### mode
 
-Its value can be `add` or `replace` or ''. The default value is `add`.  
-`add`: means will add chunk file to entry.  
-`replace`: means will remove original entry file, and add chunk file to entry.  
-'': means will not add chunk file to entry.  
+Its value can be `'add'` or `'replace'` or `''`. The default value is `add`.  
+
+`'add'`: means will add chunk file to entry.  
+`'replace'`: means will remove original entry file, and add chunk file to entry.  
+`''`: means will not add chunk file to entry.  
 
 ### min
-Its value must be boolean. The default value is `true`.  
-When it's true, it will add min to entry as above. Otherwise the `xx.min.js` will not be added to entry.
+
+Its value must be boolean or `'both'`. The default value is `true`.  
+
+`true`: it will add `xx.min.js` to entry.  
+`false`: it will add `xx.js` to entry.  
+`'both'`: it will both add `xx.js` and `xx.min.js` to entry as above.  
 
 ### chunkConfig
+
 Its value must be Array.
 You need to config it to split entry file into multiple files as example.
 
 ### exclude
+
 You can skip entry file by `exclude`: ({name, path}) => boolean
 
 

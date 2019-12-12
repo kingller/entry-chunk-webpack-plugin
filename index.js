@@ -11,7 +11,7 @@ class EntryChunkWebpackPlugin {
    * @constructor
    * @param {Object} [options]
    * @param {String: 'add' | 'replace' | ''} [options.mode]
-   * @param {Boolean} [options.min]
+   * @param {Boolean | 'both'} [options.min]
    * @param {Array({ name: string, modules: string[] })} [options.chunkConfig]
    * @param {Function: ({name, path}) => boolean} [options.exclude]
    */
@@ -139,7 +139,9 @@ function splitEntryFileIntoChunkFile(entry, entryFilePath, chunkName, outputFile
 function addEntry(entry, name, filePath) {
   const { min } = this._options;
 
-  entry[name] = filePath;
+  if (min !== true) {
+    entry[name] = filePath;
+  }
   if (min) {
     entry[`${name}.min`] = filePath;
   }
