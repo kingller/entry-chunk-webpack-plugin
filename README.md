@@ -71,7 +71,7 @@ example.extend.js ({ RichEditor, ReactCropper })
 ```
 
 `Avatar` and `Button`  will be packaged to `example.base.js`.    
-`RichEditor` and `ReactCropper` will be packaged to `example.extend.js `.
+`RichEditor` and `ReactCropper` will be packaged to `example.extend.js`.
 
 
 Function `Avatar`, `Button`, `RichEditor` and `ReactCropper` are added to global library `LIB`.  
@@ -113,4 +113,10 @@ In the browser:
 ```html
 <script src="https://cdn.xx.com/example.base.js"></script>
 <script src="https://cdn.xx.com/example.extend.js"></script>
+```
+
+If you do not use the module (`RichEditor` and `ReactCropper`) in `example.extend.js`, you can only add `example.base.js` to html
+
+```html
+<script src="https://cdn.xx.com/example.base.js"></script>
 ```
