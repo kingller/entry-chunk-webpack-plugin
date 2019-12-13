@@ -115,7 +115,8 @@ In the browser:
 <script src="https://cdn.xx.com/example.extend.js"></script>
 ```
 
-If you do not use the module (`RichEditor` and `ReactCropper`) in `example.extend.js`, you can only add `example.base.js` to html
+If you do not use the module (`RichEditor` and `ReactCropper`) in `example.extend.js`, you can only add `example.base.js` to html. 
+Because in the example, [library-extend-webpack-plugin](https://github.com/kingller/library-extend-webpack-plugin) is used to package `example.extend.js` into an extension library.
 
 ```html
 <script src="https://cdn.xx.com/example.base.js"></script>
