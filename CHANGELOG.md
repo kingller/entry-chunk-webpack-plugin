@@ -6,6 +6,10 @@
 <font color=red><strong>删除</strong></font>
 
 
+# 2.1.1
+1. <font color=blue>增强</font> Add yellow color to warning message.
+
+
 # 2.1.0
 1. <font color=orange>修改</font> Change default value of `options.min` to `false`
 
