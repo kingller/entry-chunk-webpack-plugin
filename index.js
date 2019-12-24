@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const PLUGIN_NAME = 'EntryChunkWebpackPlugin';
-const warn = msg => console.warn('\033[33m' + `[${PLUGIN_NAME}] ${msg}` + '\033[39m');
+const warn = msg => console.warn(`\u001b[33m[${PLUGIN_NAME}] ${msg}\u001b[39m`);
 
 /**
  * @class EntryChunkWebpackPlugin

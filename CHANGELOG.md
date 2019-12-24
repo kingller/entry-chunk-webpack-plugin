@@ -6,6 +6,10 @@
 <font color=red><strong>删除</strong></font>
 
 
+# 2.1.2
+1. <font color=blue>增强</font> Use ECMAScript string template for font color.
+
+
 # 2.1.1
 1. <font color=blue>增强</font> Add yellow color to warning message.
 
