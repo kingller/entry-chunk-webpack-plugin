@@ -1,6 +1,6 @@
 {
   "name": "entry-chunk-webpack-plugin",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "A webpack plugin that splits one entry file into multiple files and add them to entry of webpack.",
   "keywords": [
     "entry",
@@ -24,9 +24,9 @@
   "main": "index.js",
   "dependencies": {},
   "peerDependencies": {
-    "webpack": ">= 4.0.0"
+    "webpack": ">=5.0.0"
   },
   "engines": {
-    "node": ">=6.11.5"
+    "node": ">=10.16.3"
   }
 }

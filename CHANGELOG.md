@@ -5,6 +5,9 @@
 <font color=red>修复</font>
 <font color=red><strong>删除</strong></font>
 
+# 3.0.0
+1. <font color=orange>修改</font> 支持webpack5 
+
 
 # 2.1.2
 1. <font color=blue>增强</font> Use ECMAScript string template for font color.
